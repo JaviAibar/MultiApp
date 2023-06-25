@@ -15,3 +15,4 @@ C:\Users\Javi\source\repos\MultiApp\DataManagingModule\obj\Debug\net6.0-windows\
 C:\Users\Javi\source\repos\MultiApp\DataManagingModule\obj\Debug\net6.0-windows\refint\DataManagingModule.dll
 C:\Users\Javi\source\repos\MultiApp\DataManagingModule\obj\Debug\net6.0-windows\DataManagingModule.pdb
 C:\Users\Javi\source\repos\MultiApp\DataManagingModule\obj\Debug\net6.0-windows\ref\DataManagingModule.dll
+C:\Users\Javi\source\repos\MultiApp\DataManagingModule\bin\Debug\net6.0-windows\Database\mill.csv

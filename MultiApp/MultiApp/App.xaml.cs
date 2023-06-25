@@ -27,8 +27,8 @@ namespace MultiApp
         protected override void ConfigureModuleCatalog(IModuleCatalog moduleCatalog)
         {
            // moduleCatalog.AddModule<ModuleNameModule>();
-            moduleCatalog.AddModule<MusicModule.MusicModuleModule>();
             moduleCatalog.AddModule<Visualizer3D.Visualizer3DModule>();
+            moduleCatalog.AddModule<MusicModule.MusicModuleModule>();
             moduleCatalog.AddModule<DataManagingModule.DataManagingModuleModule>();
         }
     }

@@ -1,9 +1,12 @@
-﻿using Prism.Mvvm;
+﻿using Prism.Commands;
+using Prism.Mvvm;
+using Prism.Regions;
 
 namespace MultiApp.ViewModels
 {
     public class MainWindowViewModel : BindableBase
     {
+        private IRegionManager _regionManager;
         private string _title = "Prism Application";
         public string Title
         {
@@ -11,9 +14,19 @@ namespace MultiApp.ViewModels
             set { SetProperty(ref _title, value); }
         }
 
-        public MainWindowViewModel()
+        public MainWindowViewModel(IRegionManager regionManager)
         {
+            _regionManager = regionManager;
+            SelectedTab = 2;
+            //regionManager.RequestNavigate("Visualizer3DRegion", "Visualizer3DViewModel");
+        }
 
+
+        private int _selectedTab;
+        public int SelectedTab
+        {
+            get { return _selectedTab; }
+            set { SetProperty(ref _selectedTab, value); }
         }
     }
 }

@@ -59,7 +59,7 @@ namespace DataManagingModule.Views {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/DataManagingModule;V1.0.0.0;component/views/datalist.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/DataManagingModule;component/views/datalist.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\Views\DataList.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

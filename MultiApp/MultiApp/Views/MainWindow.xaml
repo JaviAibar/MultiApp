@@ -7,7 +7,7 @@
         Title="{Binding Title}" Height="350" Width="525" >
 
     <Grid>
-        <TabControl>
+        <TabControl SelectedIndex="{Binding SelectedTab}">
             <TabItem prism:RegionManager.RegionName="MusicRegion" Header="Music" />
             <TabItem prism:RegionManager.RegionName="Visualizer3DRegion" Header="3D Viewer" />
             <TabItem prism:RegionManager.RegionName="DataManagingRegion" Header="Data Manager" />
