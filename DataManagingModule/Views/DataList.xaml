@@ -8,9 +8,21 @@
              d:DesignHeight="300" d:DesignWidth="300"
              xmlns:prism="http://prismlibrary.com/"
              prism:ViewModelLocator.AutoWireViewModel="True" >
-    <Grid>
-        <TextBlock Text="{Binding Message}"
-                       HorizontalAlignment="Center"
-                       VerticalAlignment="Center" />
-    </Grid>
+    <!--<Grid>
+        <ListView ItemsSource="{Binding MillData}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Grid Height="Auto" Margin="0,0,0,10">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <TextBox Grid.Column="0" Text="{Binding CaseName}" />
+                        <TextBox Grid.Column="1" Text="{Binding Run}" />
+                    </Grid>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </Grid>-->
+    <DataGrid ItemsSource="{Binding MillData}" />
 </UserControl>
