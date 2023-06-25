@@ -1,0 +1,24 @@
+{
+  "version": 2,
+  "dgSpecHash": "LbDDBju9jvZq2casQ8cPKdoN9LnzinQFsY3Ht3owiXOnTKbJVx+M8SYSQpCzHcguccnDGoPtQCQk0MZPqA67Kg==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Javi\\source\\repos\\MultiApp\\Visualizer3D\\Visualizer3D.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Javi\\.nuget\\packages\\helixtoolkit.wpf\\2.24.0\\helixtoolkit.wpf.2.24.0.nupkg.sha512",
+    "C:\\Users\\Javi\\.nuget\\packages\\microsoft.xaml.behaviors.wpf\\1.1.31\\microsoft.xaml.behaviors.wpf.1.1.31.nupkg.sha512",
+    "C:\\Users\\Javi\\.nuget\\packages\\prism.core\\8.1.97\\prism.core.8.1.97.nupkg.sha512",
+    "C:\\Users\\Javi\\.nuget\\packages\\prism.wpf\\8.1.97\\prism.wpf.8.1.97.nupkg.sha512"
+  ],
+  "logs": [
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "El paquete \"HelixToolkit.Wpf 2.24.0\" se restauró con \".NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1\" en lugar de la plataforma de destino del proyecto \"net6.0-windows7.0\". Puede que el paquete no sea totalmente compatible con el proyecto.",
+      "libraryId": "HelixToolkit.Wpf",
+      "targetGraphs": [
+        "net6.0-windows7.0"
+      ]
+    }
+  ]
+}

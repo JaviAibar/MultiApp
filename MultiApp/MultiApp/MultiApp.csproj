@@ -1,0 +1,23 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+	<PropertyGroup>
+		<OutputType>WinExe</OutputType>
+		<TargetFramework>net6.0-windows</TargetFramework>
+		<UseWPF>true</UseWPF>
+		<ApplicationIcon>Resources\Logo.ico</ApplicationIcon>
+	</PropertyGroup>
+	<ItemGroup>
+	  <Content Include="Resources\Logo.ico" />
+	</ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="Prism.Unity" Version="8.1.97" />
+	</ItemGroup>
+	<ItemGroup>
+		<ProjectReference Include="..\..\MusicModule\MusicModule.csproj" />
+		<ProjectReference Include="..\..\Visualizer3D\Visualizer3D.csproj" />
+		<ProjectReference Include="..\..\DataManagingModule\DataManagingModule.csproj" />
+		<ProjectReference Include="..\MultiApp.Core\MultiApp.Core.csproj" />
+		<ProjectReference Include="..\Modules\MultiApp.Modules.ModuleName\MultiApp.Modules.ModuleName.csproj" />
+		<ProjectReference Include="..\Services\MultiApp.Services.Interfaces\MultiApp.Services.Interfaces.csproj" />
+		<ProjectReference Include="..\Services\MultiApp.Services\MultiApp.Services.csproj" />
+	</ItemGroup>
+</Project>

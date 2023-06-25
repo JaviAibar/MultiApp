@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "EDcb0A8tnFpUholHC455Oovi40goKS5QeLyG/028fuE9GRPfqNUj7p9XdWnb7GJfEnLcQ8lVoUU55bZEWpP7og==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Javi\\source\\repos\\MultiApp\\MultiApp\\Modules\\MultiApp.Modules.ModuleName\\MultiApp.Modules.ModuleName.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Javi\\.nuget\\packages\\microsoft.xaml.behaviors.wpf\\1.1.31\\microsoft.xaml.behaviors.wpf.1.1.31.nupkg.sha512",
+    "C:\\Users\\Javi\\.nuget\\packages\\prism.core\\8.1.97\\prism.core.8.1.97.nupkg.sha512",
+    "C:\\Users\\Javi\\.nuget\\packages\\prism.wpf\\8.1.97\\prism.wpf.8.1.97.nupkg.sha512"
+  ],
+  "logs": []
+}

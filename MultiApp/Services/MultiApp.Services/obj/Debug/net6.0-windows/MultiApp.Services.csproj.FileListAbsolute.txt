@@ -1,0 +1,15 @@
+C:\Users\Javi\source\repos\MultiApp\MultiApp\Services\MultiApp.Services\obj\Debug\net6.0-windows\MultiApp.Services.csproj.AssemblyReference.cache
+C:\Users\Javi\source\repos\MultiApp\MultiApp\Services\MultiApp.Services\obj\Debug\net6.0-windows\MultiApp.Services.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Javi\source\repos\MultiApp\MultiApp\Services\MultiApp.Services\obj\Debug\net6.0-windows\MultiApp.Services.AssemblyInfoInputs.cache
+C:\Users\Javi\source\repos\MultiApp\MultiApp\Services\MultiApp.Services\obj\Debug\net6.0-windows\MultiApp.Services.AssemblyInfo.cs
+C:\Users\Javi\source\repos\MultiApp\MultiApp\Services\MultiApp.Services\obj\Debug\net6.0-windows\MultiApp.Services.csproj.CoreCompileInputs.cache
+C:\Users\Javi\source\repos\MultiApp\MultiApp\Services\MultiApp.Services\bin\Debug\net6.0-windows\MultiApp.Services.deps.json
+C:\Users\Javi\source\repos\MultiApp\MultiApp\Services\MultiApp.Services\bin\Debug\net6.0-windows\MultiApp.Services.dll
+C:\Users\Javi\source\repos\MultiApp\MultiApp\Services\MultiApp.Services\bin\Debug\net6.0-windows\MultiApp.Services.pdb
+C:\Users\Javi\source\repos\MultiApp\MultiApp\Services\MultiApp.Services\bin\Debug\net6.0-windows\MultiApp.Services.Interfaces.dll
+C:\Users\Javi\source\repos\MultiApp\MultiApp\Services\MultiApp.Services\bin\Debug\net6.0-windows\MultiApp.Services.Interfaces.pdb
+C:\Users\Javi\source\repos\MultiApp\MultiApp\Services\MultiApp.Services\obj\Debug\net6.0-windows\MultiApp.Services.csproj.CopyComplete
+C:\Users\Javi\source\repos\MultiApp\MultiApp\Services\MultiApp.Services\obj\Debug\net6.0-windows\MultiApp.Services.dll
+C:\Users\Javi\source\repos\MultiApp\MultiApp\Services\MultiApp.Services\obj\Debug\net6.0-windows\refint\MultiApp.Services.dll
+C:\Users\Javi\source\repos\MultiApp\MultiApp\Services\MultiApp.Services\obj\Debug\net6.0-windows\MultiApp.Services.pdb
+C:\Users\Javi\source\repos\MultiApp\MultiApp\Services\MultiApp.Services\obj\Debug\net6.0-windows\ref\MultiApp.Services.dll

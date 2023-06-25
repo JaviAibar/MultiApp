@@ -1,0 +1,13 @@
+C:\Users\Javi\source\repos\MultiApp\MultiApp\Services\MultiApp.Services\bin\Debug\netstandard2.1\MultiApp.Services.deps.json
+C:\Users\Javi\source\repos\MultiApp\MultiApp\Services\MultiApp.Services\bin\Debug\netstandard2.1\MultiApp.Services.dll
+C:\Users\Javi\source\repos\MultiApp\MultiApp\Services\MultiApp.Services\bin\Debug\netstandard2.1\MultiApp.Services.pdb
+C:\Users\Javi\source\repos\MultiApp\MultiApp\Services\MultiApp.Services\bin\Debug\netstandard2.1\MultiApp.Services.Interfaces.dll
+C:\Users\Javi\source\repos\MultiApp\MultiApp\Services\MultiApp.Services\bin\Debug\netstandard2.1\MultiApp.Services.Interfaces.pdb
+C:\Users\Javi\source\repos\MultiApp\MultiApp\Services\MultiApp.Services\obj\Debug\netstandard2.1\MultiApp.Services.csproj.AssemblyReference.cache
+C:\Users\Javi\source\repos\MultiApp\MultiApp\Services\MultiApp.Services\obj\Debug\netstandard2.1\MultiApp.Services.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Javi\source\repos\MultiApp\MultiApp\Services\MultiApp.Services\obj\Debug\netstandard2.1\MultiApp.Services.AssemblyInfoInputs.cache
+C:\Users\Javi\source\repos\MultiApp\MultiApp\Services\MultiApp.Services\obj\Debug\netstandard2.1\MultiApp.Services.AssemblyInfo.cs
+C:\Users\Javi\source\repos\MultiApp\MultiApp\Services\MultiApp.Services\obj\Debug\netstandard2.1\MultiApp.Services.csproj.CoreCompileInputs.cache
+C:\Users\Javi\source\repos\MultiApp\MultiApp\Services\MultiApp.Services\obj\Debug\netstandard2.1\MultiApp.Services.csproj.CopyComplete
+C:\Users\Javi\source\repos\MultiApp\MultiApp\Services\MultiApp.Services\obj\Debug\netstandard2.1\MultiApp.Services.dll
+C:\Users\Javi\source\repos\MultiApp\MultiApp\Services\MultiApp.Services\obj\Debug\netstandard2.1\MultiApp.Services.pdb

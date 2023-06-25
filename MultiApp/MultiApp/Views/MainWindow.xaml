@@ -1,0 +1,22 @@
+﻿<Window x:Class="MultiApp.Views.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:prism="http://prismlibrary.com/"
+        prism:ViewModelLocator.AutoWireViewModel="True"
+        xmlns:core="clr-namespace:MultiApp.Core;assembly=MultiApp.Core"
+        Title="{Binding Title}" Height="350" Width="525" >
+
+    <Grid>
+        <TabControl>
+            <TabItem prism:RegionManager.RegionName="MusicRegion" Header="Music" />
+            <TabItem prism:RegionManager.RegionName="Visualizer3DRegion" Header="3D Viewer" />
+            <TabItem prism:RegionManager.RegionName="DataManagingRegion" Header="Data Manager" />
+        </TabControl>
+    </Grid>
+</Window>
+
+<!--<TabControl prism:RegionManager.RegionName="MusicRegion"  Margin="10" />-->
+
+<!--<ContentControl prism:RegionManager.RegionName="MusicRegion" />-->
+
+<!--<ContentControl prism:RegionManager.RegionName="{x:Static core:RegionNames.ContentRegion}" />-->
