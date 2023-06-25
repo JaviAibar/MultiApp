@@ -24,6 +24,10 @@ namespace DataManagingModule.Model
         public double AE_table1 { get;  set;  }
         public double AE_spindle1 { get;  set;  }
 
+        public Mill()
+        {
+            
+        }
         public Mill(string caseName, double run, double VB, double time, double DOC, double feed, double material, double smcAC, double smcDC, double vib_table, double vib_spindle, double AE_table, double AE_spindle)
         {
             CaseName = caseName;
@@ -39,6 +43,11 @@ namespace DataManagingModule.Model
             Vib_spindle = vib_spindle;
             AE_table1 = AE_table;
             AE_spindle1 = AE_spindle;
+        }
+
+        public override string ToString()
+        {
+            return $"{CaseName},{Run},{VB1},{Time},{DOC1},{Feed},{Material},{SmcAC},{SmcDC},{Vib_table},{Vib_spindle},{AE_table1},{AE_spindle1}";
         }
     }
 }

@@ -1,9 +1,12 @@
-﻿using Prism.Commands;
+﻿using System;
+using System.Diagnostics;
+using Prism.Commands;
 using Prism.Mvvm;
 using Prism.Regions;
 
 namespace MultiApp.ViewModels
 {
+    [Obsolete]
     public class MainWindowViewModel : BindableBase
     {
         private IRegionManager _regionManager;
@@ -28,5 +31,6 @@ namespace MultiApp.ViewModels
             get { return _selectedTab; }
             set { SetProperty(ref _selectedTab, value); }
         }
+
     }
 }

@@ -13,6 +13,7 @@
 		<PackageReference Include="Prism.Wpf" Version="8.1.97" />
 	</ItemGroup>
 	<ItemGroup>
+		<ProjectReference Include="..\MultiApp\MultiApp.Core\MultiApp.Core.csproj" />
 		<ProjectReference Include="..\MultiApp\Services\MultiApp.Services\MultiApp.Services.csproj" />
 		<ProjectReference Include="..\MultiApp\Services\MultiApp.Services.Interfaces\MultiApp.Services.Interfaces.csproj" />
 	</ItemGroup>

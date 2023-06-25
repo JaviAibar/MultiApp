@@ -8,8 +8,12 @@
              d:DesignHeight="300" d:DesignWidth="300"
              xmlns:prism="http://prismlibrary.com/"
              prism:ViewModelLocator.AutoWireViewModel="True" >
-    <!--<Grid>
-        <ListView ItemsSource="{Binding MillData}">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <!-- <ListView ItemsSource="{Binding MillData}">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <Grid Height="Auto" Margin="0,0,0,10">
@@ -22,7 +26,26 @@
                     </Grid>
                 </DataTemplate>
             </ListView.ItemTemplate>
-        </ListView>
-    </Grid>-->
-    <DataGrid ItemsSource="{Binding MillData}" />
+    </ListView>-->
+    <DataGrid ItemsSource="{Binding MillData}"
+              SelectedItem="{Binding SelectedData}"
+              SelectedIndex="{Binding SelectedIndex}"/>
+        <StackPanel Grid.Column="1"
+                    VerticalAlignment="Center">
+            <StackPanel.Resources>
+                <Style TargetType="Button">
+                    <Setter Property="Margin" Value="0 10" />
+                </Style>
+            </StackPanel.Resources>
+            <Button 
+                Content="Delete..."
+                Command="{Binding RemoveSelectedData}"/>
+            <Button 
+                Content="Save changes..."
+                Command="{Binding SaveChangesCommand}"/>
+            <Button 
+                Content="Edit selected data..."
+                Command="{Binding EditDataCommand}"/>
+        </StackPanel>
+    </Grid>
 </UserControl>

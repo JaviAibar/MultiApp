@@ -1,4 +1,5 @@
-﻿using MusicModule.ViewModels;
+﻿using MultiApp.Core;
+using MusicModule.ViewModels;
 using MusicModule.Views;
 using Prism.Ioc;
 using Prism.Modularity;
@@ -12,12 +13,12 @@ namespace MusicModule
         public void OnInitialized(IContainerProvider containerProvider)
         {
             var regionManager = containerProvider.Resolve<IRegionManager>();
-            IRegion region = regionManager.Regions["MusicRegion"];
+            IRegion region = regionManager.Regions[RegionNames.MusicRegion];
             var player = containerProvider.Resolve<MusicPlayer>();
             (player.DataContext as MusicPlayerViewModel).Title = "Music";
             region.Add(player);
 
-            region = regionManager.Regions["PlayerRegion"];
+            region = regionManager.Regions[RegionNames.PlayerRegion];
             var playerView = containerProvider.Resolve<PlayerView>();
             region.Add(playerView);
         }

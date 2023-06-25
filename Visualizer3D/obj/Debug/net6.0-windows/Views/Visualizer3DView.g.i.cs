@@ -60,7 +60,7 @@ namespace Visualizer3D.Views {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/Visualizer3D;component/views/visualizer3dview.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/Visualizer3D;V1.0.0.0;component/views/visualizer3dview.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\Views\Visualizer3DView.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

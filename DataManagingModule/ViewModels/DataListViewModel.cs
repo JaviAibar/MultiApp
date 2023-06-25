@@ -1,6 +1,12 @@
-﻿using DataManagingModule.Model;
+﻿using DataManagingModule.Interfaces;
+using DataManagingModule.Model;
+using DataManagingModule.Services;
+using DataManagingModule.Views;
+using MultiApp.Core;
 using Prism.Commands;
 using Prism.Mvvm;
+using Prism.Regions;
+using Prism.Services.Dialogs;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -14,72 +20,129 @@ using System.Windows.Shapes;
 
 namespace DataManagingModule.ViewModels
 {
-    public class DataListViewModel : BindableBase
+    public class DataListViewModel : BindableBase, INavigationAware
     {
+        private IDialogService _dialogService;
+        private IRegionManager _regionManager;
+        private MillDataManager _dataManager;
+        private Mill _selectedData;
+        public Mill SelectedData
+        {
+            get { return _selectedData; }
+            set { SetProperty(ref _selectedData, value); }
+        }
 
 
-        private ObservableCollection<Mill> _millData;
+        private int _selectedIndex;
+        public int SelectedIndex
+        {
+            get { return _selectedIndex; }
+            set { SetProperty(ref _selectedIndex, value); }
+        }
+
+        //private ObservableCollection<Mill> _millData;
+
         public ObservableCollection<Mill> MillData
         {
-            get { return _millData; }
-            set { SetProperty(ref _millData, value); }
+            get { return _dataManager.Data; }
+            set { ObservableCollection<Mill> tmp = _dataManager.Data; SetProperty(ref tmp, value); }
         }
-        public DataListViewModel()
+
+        private DelegateCommand _removeSelectedData;
+        public DelegateCommand RemoveSelectedData =>
+            _removeSelectedData ?? (_removeSelectedData = new DelegateCommand(ExecuteRemoveSelectedData));
+
+
+        private DelegateCommand _saveChangesCommand;
+        public DelegateCommand SaveChangesCommand =>
+            //_saveChangesCommand ?? (_saveChangesCommand = new DelegateCommand(ExecuteSaveDataCommand, SaveChangesCanExecute).ObservesProperty(() => _dataManager.UnsavedChanges));
+            _saveChangesCommand ?? (_saveChangesCommand = new DelegateCommand(ExecuteSaveDataCommand, SaveChangesCanExecute));
+
+
+        private DelegateCommand _editDataCommand;
+
+        public DelegateCommand EditDataCommand =>
+            _editDataCommand ?? (_editDataCommand = new DelegateCommand(ExecuteEditDataCommand, CanExecuteEditDataCommand));
+
+        void ExecuteEditDataCommand()
+        {
+            if (SelectedData == null)
+            {
+                MessageBox.Show("You must select a row before trying to edit it!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+
+            var navigationParams = new NavigationParameters
+            {
+                { "selectedMill", SelectedData }
+            };
+            //nameof(DataEditView)
+            _regionManager.RequestNavigate(RegionNames.DataManagingRegion, "DataEditView", navigationParams);
+        }
+
+        bool CanExecuteEditDataCommand()
+        {
+            return true;
+        }
+        private bool SaveChangesCanExecute()
+        {
+            return _dataManager.UnsavedChanges;
+        }
+
+        void ExecuteSaveDataCommand()
+        {
+            if (MessageBox.Show("Are you sure you want to save changes", "Save changes", MessageBoxButton.YesNoCancel, MessageBoxImage.Question) == MessageBoxResult.Yes)
+                _dataManager.SaveChanges();
+        }
+
+        void ExecuteRemoveSelectedData()
+        {
+            if (SelectedData == null)
+            {
+                MessageBox.Show("You must select a row before trying to delete it!", "Error", MessageBoxButton.OK, MessageBoxImage.Error); return;
+            }
+
+            _dialogService.ShowDialog(nameof(RemoveDataView), new DialogParameters($"message=Are you sure you want to remove the row \"{SelectedData.CaseName}\"?"), r =>
+            {
+                if (r.Result == ButtonResult.OK)
+                    _dataManager.RemoveRow(SelectedData);
+            });
+        }
+
+        public void OnNavigatedTo(NavigationContext navigationContext)
+        {
+            var editedMill = navigationContext.Parameters["editedMill"] as Mill;
+            if (editedMill != null)
+            {
+                var index = _dataManager.UpdateRow(SelectedData, editedMill);
+                if (index > -1)
+                    SelectedIndex = index;
+            }
+        }
+
+        public bool IsNavigationTarget(NavigationContext navigationContext)
+        {
+            return true;
+        }
+
+        public void OnNavigatedFrom(NavigationContext navigationContext)
+        {
+
+        }
+
+        public DataListViewModel(IDialogService dialogService, IRegionManager regionManager)
         {
             //Uri uriData = new Uri(@"pack://application:,,,/DataManagingModule;component/Database/mill.csv");
             //Directory.GetFiles("./Database");
             //Uri uriData = new Uri(@"pack://application:,,,/Database/mill.csv");
             // Se usa el reader que corresponda al tipo de archivo que deseemos cargar
-            MillData = new ObservableCollection<Mill>(ReadCSV("./Database/mill.csv"));
+            _dialogService = dialogService;
+            _regionManager = regionManager;
+            _dataManager = new MillDataManager("./Database/mill.csv");
+            _dataManager.unsavedChanged += SaveChangesCommand.RaiseCanExecuteChanged;
+            // _dataManager.PropertyChanged += 
+            //MillData = new ObservableCollection<Mill>(ReadCSV(""));
         }
-        public IEnumerable<Mill> ReadCSV(string filename)
-        {
-            /* METHOD WITH URI
-            StreamResourceInfo info = Application.GetResourceStream(uri);
-            // We change file extension here to make sure it's a .csv file.
-            // TODO: Error checking.
-            StreamReader sr = new StreamReader(info.Stream);
-            if (sr.EndOfStream)
-            {
-                MessageBox.Show($"File {uri.AbsolutePath} it's empty", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-                return null;
-            }
-            List<Mill> values = null;
-            do
-            {
-                string[] data = sr.ReadLine().Split(';');
-                // We return a person with the data in order.
-                values.Add(
-                    new Mill(data[0], double.Parse(data[1]), double.Parse(data[2]), double.Parse(data[3]), double.Parse(data[4]),
-                    double.Parse(data[5]), double.Parse(data[6]), double.Parse(data[7]), double.Parse(data[8]), double.Parse(data[9]),
-                    double.Parse(data[10]), double.Parse(data[11]), double.Parse(data[12]))
-                );
-            } while (!sr.EndOfStream);
-            return values;*/
 
-            string[] lines = File.ReadAllLines(System.IO.Path.ChangeExtension(filename, ".csv"));
-            string[] subarray = new string[lines.Length - 1];
-            Array.Copy(lines, 1, subarray, 0, lines.Length - 1);
-            // lines.Select allows me to project each line as a Person. 
-            // This will give me an IEnumerable<Person> back.
-            return subarray.Select(line =>
-            {
-                string[] data = line.Split(',');
-                // We return a person with the data in order.
-                return new Mill(data[0], 
-                    double.Parse(string.IsNullOrEmpty(data[1]) ? "0": data[1]), 
-                    double.Parse(string.IsNullOrEmpty(data[2]) ? "0" : data[2]), 
-                    double.Parse(string.IsNullOrEmpty(data[3]) ? "0" : data[3]), 
-                    double.Parse(string.IsNullOrEmpty(data[4]) ? "0" : data[4]),
-                    double.Parse(string.IsNullOrEmpty(data[5]) ? "0" : data[5]), 
-                    double.Parse(string.IsNullOrEmpty(data[6]) ? "0" : data[6]), 
-                    double.Parse(string.IsNullOrEmpty(data[7]) ? "0" : data[7]), 
-                    double.Parse(string.IsNullOrEmpty(data[8]) ? "0" : data[8]), 
-                    double.Parse(string.IsNullOrEmpty(data[9]) ? "0" : data[9]),
-                    double.Parse(string.IsNullOrEmpty(data[10]) ? "0" : data[10]), 
-                    double.Parse(string.IsNullOrEmpty(data[11]) ? "0" : data[11]), 
-                    double.Parse(string.IsNullOrEmpty(data[12]) ? "0" : data[12]));
-            });
-        }
     }
 }

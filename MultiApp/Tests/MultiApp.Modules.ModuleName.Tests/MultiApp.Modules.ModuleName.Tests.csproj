@@ -24,4 +24,8 @@
     <ProjectReference Include="..\..\Modules\MultiApp.Modules.ModuleName\MultiApp.Modules.ModuleName.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Extensions\" />
+  </ItemGroup>
+
 </Project>

@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET6_0;NETCOREAPP
 
-1662846720
+31830729248
 1878370838
-6-1830564206
-197-993115790
-Views\DataList.xaml;
+12-134065818
+1982049919893
+Views\DataEditView.xaml;Views\DataList.xaml;Views\RemoveDataView.xaml;
 
-True
+False
 

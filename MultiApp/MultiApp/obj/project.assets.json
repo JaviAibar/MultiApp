@@ -143,6 +143,7 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
+          "MultiApp.Core": "1.0.0",
           "Prism.Wpf": "8.1.97"
         },
         "compile": {
@@ -222,6 +223,7 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
+          "MultiApp.Core": "1.0.0",
           "MultiApp.Services": "1.0.0",
           "MultiApp.Services.Interfaces": "1.0.0",
           "Prism.Wpf": "8.1.97"
@@ -241,6 +243,7 @@
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
           "HelixToolkit.Wpf": "2.24.0",
+          "MultiApp.Core": "1.0.0",
           "Prism.Wpf": "8.1.97"
         },
         "compile": {

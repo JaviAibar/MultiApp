@@ -14,4 +14,7 @@
   <ItemGroup>
     <PackageReference Include="Prism.Wpf" Version="8.1.97" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MultiApp\MultiApp.Core\MultiApp.Core.csproj" />
+  </ItemGroup>
 </Project>

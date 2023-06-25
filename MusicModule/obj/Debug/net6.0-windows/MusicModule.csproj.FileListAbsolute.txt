@@ -22,3 +22,5 @@ C:\Users\Javi\source\repos\MultiApp\MusicModule\bin\Debug\net6.0-windows\MultiAp
 C:\Users\Javi\source\repos\MultiApp\MusicModule\bin\Debug\net6.0-windows\MultiApp.Services.pdb
 C:\Users\Javi\source\repos\MultiApp\MusicModule\bin\Debug\net6.0-windows\MultiApp.Services.Interfaces.pdb
 C:\Users\Javi\source\repos\MultiApp\MusicModule\obj\Debug\net6.0-windows\MusicModule.csproj.CopyComplete
+C:\Users\Javi\source\repos\MultiApp\MusicModule\bin\Debug\net6.0-windows\MultiApp.Core.dll
+C:\Users\Javi\source\repos\MultiApp\MusicModule\bin\Debug\net6.0-windows\MultiApp.Core.pdb

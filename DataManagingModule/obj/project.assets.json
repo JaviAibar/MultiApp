@@ -50,6 +50,22 @@
         "frameworkReferences": [
           "Microsoft.WindowsDesktop.App.WPF"
         ]
+      },
+      "MultiApp.Core/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "Prism.Wpf": "8.1.97"
+        },
+        "compile": {
+          "bin/placeholder/MultiApp.Core.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/MultiApp.Core.dll": {}
+        },
+        "frameworkReferences": [
+          "Microsoft.WindowsDesktop.App.WPF"
+        ]
       }
     }
   },
@@ -130,10 +146,16 @@
         "prism.wpf.nuspec",
         "readme.txt"
       ]
+    },
+    "MultiApp.Core/1.0.0": {
+      "type": "project",
+      "path": "../MultiApp/MultiApp.Core/MultiApp.Core.csproj",
+      "msbuildProject": "../MultiApp/MultiApp.Core/MultiApp.Core.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net6.0-windows7.0": [
+      "MultiApp.Core >= 1.0.0",
       "Prism.Wpf >= 8.1.97"
     ]
   },
@@ -163,7 +185,11 @@
       "frameworks": {
         "net6.0-windows7.0": {
           "targetAlias": "net6.0-windows",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\Javi\\source\\repos\\MultiApp\\MultiApp\\MultiApp.Core\\MultiApp.Core.csproj": {
+              "projectPath": "C:\\Users\\Javi\\source\\repos\\MultiApp\\MultiApp\\MultiApp.Core\\MultiApp.Core.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

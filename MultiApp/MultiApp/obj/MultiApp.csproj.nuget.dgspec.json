@@ -27,7 +27,11 @@
         "frameworks": {
           "net6.0-windows7.0": {
             "targetAlias": "net6.0-windows",
-            "projectReferences": {}
+            "projectReferences": {
+              "C:\\Users\\Javi\\source\\repos\\MultiApp\\MultiApp\\MultiApp.Core\\MultiApp.Core.csproj": {
+                "projectPath": "C:\\Users\\Javi\\source\\repos\\MultiApp\\MultiApp\\MultiApp.Core\\MultiApp.Core.csproj"
+              }
+            }
           }
         },
         "warningProperties": {
@@ -433,6 +437,9 @@
           "net6.0-windows7.0": {
             "targetAlias": "net6.0-windows",
             "projectReferences": {
+              "C:\\Users\\Javi\\source\\repos\\MultiApp\\MultiApp\\MultiApp.Core\\MultiApp.Core.csproj": {
+                "projectPath": "C:\\Users\\Javi\\source\\repos\\MultiApp\\MultiApp\\MultiApp.Core\\MultiApp.Core.csproj"
+              },
               "C:\\Users\\Javi\\source\\repos\\MultiApp\\MultiApp\\Services\\MultiApp.Services.Interfaces\\MultiApp.Services.Interfaces.csproj": {
                 "projectPath": "C:\\Users\\Javi\\source\\repos\\MultiApp\\MultiApp\\Services\\MultiApp.Services.Interfaces\\MultiApp.Services.Interfaces.csproj"
               },
@@ -503,7 +510,11 @@
         "frameworks": {
           "net6.0-windows7.0": {
             "targetAlias": "net6.0-windows",
-            "projectReferences": {}
+            "projectReferences": {
+              "C:\\Users\\Javi\\source\\repos\\MultiApp\\MultiApp\\MultiApp.Core\\MultiApp.Core.csproj": {
+                "projectPath": "C:\\Users\\Javi\\source\\repos\\MultiApp\\MultiApp\\MultiApp.Core\\MultiApp.Core.csproj"
+              }
+            }
           }
         },
         "warningProperties": {

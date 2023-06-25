@@ -9,6 +9,7 @@
       "Visualizer3D/1.0.0": {
         "dependencies": {
           "HelixToolkit.Wpf": "2.24.0",
+          "MultiApp.Core": "1.0.0",
           "Prism.Wpf": "8.1.97"
         },
         "runtime": {
@@ -50,6 +51,14 @@
             "fileVersion": "8.1.97.5141"
           }
         }
+      },
+      "MultiApp.Core/1.0.0": {
+        "dependencies": {
+          "Prism.Wpf": "8.1.97"
+        },
+        "runtime": {
+          "MultiApp.Core.dll": {}
+        }
       }
     }
   },
@@ -86,6 +95,11 @@
       "sha512": "sha512-ZEa6S1mK35h8/blyb0uR0ed3wkpHtPdhB4eniXINJnTiJMWlGl/As6SVlFFdOPD+qsEdWNYV3xgyQD/ue5cvBA==",
       "path": "prism.wpf/8.1.97",
       "hashPath": "prism.wpf.8.1.97.nupkg.sha512"
+    },
+    "MultiApp.Core/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
     }
   }
 }

@@ -85,7 +85,7 @@ namespace MusicModule.ViewModels
             return EndsWith(name, new string[] { ".mp3", ".wav" }); //, ".ogg" not supported by WPF
         }
 
-        public bool EndsWith(string name, string[] exts)
+        public static bool EndsWith(string name, string[] exts)
         {
             foreach (string ext in exts)
                 if (name.EndsWith(ext, StringComparison.OrdinalIgnoreCase)) return true;
