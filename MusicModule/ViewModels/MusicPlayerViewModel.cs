@@ -27,15 +27,9 @@ namespace MusicModule.ViewModels
         public DelegateCommand LoadMusicFiles =>
             _loadMusic ?? (_loadMusic = new DelegateCommand(ExecuteLoadMusicFiles));
         public DelegateCommand<MusicFile> SongSelectedCommand { get; private set; }
-        public MusicFile SongFileSelected
-        {
-            get { return _songSelected; }
-            set { SetProperty(ref _songSelected, value); }
-        }
 
         // Properties backing field
         private string _title;
-
         private MusicFile _songSelected;
         private ObservableCollection<MusicFile> _musicList = new();
         
@@ -45,6 +39,11 @@ namespace MusicModule.ViewModels
             get { return _title; }
             set { SetProperty(ref _title, value); }
         }
+        public MusicFile SongFileSelected
+        {
+            get { return _songSelected; }
+            set { SetProperty(ref _songSelected, value); }
+        }
 
         public ObservableCollection<MusicFile> MusicList
         {
@@ -53,13 +52,16 @@ namespace MusicModule.ViewModels
         }
 
 
-
+        // Constructor
         public MusicPlayerViewModel(IMusicPlayerService musicPlayerService)
         {
             _musicService = musicPlayerService;
             SongSelectedCommand = new DelegateCommand<MusicFile>(SongSelected);
             ExecuteLoadMusicFiles();
         }
+
+
+
         private void SongSelected(MusicFile song)
         {
             if (song == null) return;
@@ -71,9 +73,9 @@ namespace MusicModule.ViewModels
         {
             MusicList.Clear();
 
-            FileInfo[] files = new DirectoryInfo(Environment.GetFolderPath(Environment.SpecialFolder.MyMusic)).GetFiles()
-                .Where(f => IsAudioFile(f.Name))
-                .ToArray();
+            var files = new DirectoryInfo(Environment.GetFolderPath(Environment.SpecialFolder.MyMusic)).GetFiles()
+                .Where(f => IsAudioFile(f.Name));
+                
 
             foreach (FileInfo file in files)
             {
@@ -92,7 +94,5 @@ namespace MusicModule.ViewModels
             return false;
         }
 
-        
-        
     }
 }

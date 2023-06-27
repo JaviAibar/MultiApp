@@ -14,7 +14,6 @@ namespace Visualizer3D
             IRegion visualizer3DRegion = regionManager.Regions[RegionNames.Visualizer3DRegion];
             var view = containerProvider.Resolve<Visualizer3DView>();
             visualizer3DRegion.Add(view);
-            //regionManager.RequestNavigate("Visualizer3DRegion", "Visualizer3DViewModel");
         }
 
         public void RegisterTypes(IContainerRegistry containerRegistry)

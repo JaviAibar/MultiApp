@@ -25,7 +25,6 @@ namespace ExtensionsTest
         [TestCase("1.1", 1.1d)]
         public void ParseOr0Test(string received, double expected)
         {
-            System.Diagnostics.Debug.WriteLine(Thread.CurrentThread.CurrentUICulture);
             Assert.That(received.ParseOr0(), Is.EqualTo(expected));
         }
     }

@@ -8,14 +8,12 @@ namespace MultiApp.Services.Interfaces
     public interface IMusicPlayerService
     {
         public string CurrentSong { get; set; }
+        public bool IsPlaying { get; }
+
         public void Play();
         public void Pause();
         public void Stop();
-
-        public bool IsPlaying { get; }
-
         public void AddMediaEndedListener(EventHandler mediaEnded);
-
         public void RemoveMediaEndedListener(EventHandler mediaEnded);
     }
 }

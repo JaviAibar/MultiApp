@@ -6,10 +6,10 @@ using Prism.Regions;
 
 namespace MultiApp.ViewModels
 {
-    [Obsolete]
     public class MainWindowViewModel : BindableBase
     {
         private IRegionManager _regionManager;
+
         private string _title = "MultiApp";
         public string Title
         {
@@ -17,17 +17,18 @@ namespace MultiApp.ViewModels
             set { SetProperty(ref _title, value); }
         }
 
-        public MainWindowViewModel(IRegionManager regionManager)
-        {
-            _regionManager = regionManager;
-        }
-
-
         private int _selectedTab;
         public int SelectedTab
         {
             get { return _selectedTab; }
             set { SetProperty(ref _selectedTab, value); }
+        }
+
+
+
+        public MainWindowViewModel(IRegionManager regionManager)
+        {
+            _regionManager = regionManager;
         }
 
     }

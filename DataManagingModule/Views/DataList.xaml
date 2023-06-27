@@ -13,21 +13,8 @@
             <ColumnDefinition />
             <ColumnDefinition Width="Auto"/>
         </Grid.ColumnDefinitions>
-        <!-- <ListView ItemsSource="{Binding MillData}">
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <Grid Height="Auto" Margin="0,0,0,10">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition/>
-                            <ColumnDefinition/>
-                        </Grid.ColumnDefinitions>
-                        <TextBox Grid.Column="0" Text="{Binding CaseName}" />
-                        <TextBox Grid.Column="1" Text="{Binding Run}" />
-                    </Grid>
-                </DataTemplate>
-            </ListView.ItemTemplate>
-    </ListView>-->
-    <DataGrid ItemsSource="{Binding MillData}"
+        
+        <DataGrid ItemsSource="{Binding MillData}"
               SelectedItem="{Binding SelectedData}"
               SelectedIndex="{Binding SelectedIndex}"/>
         <StackPanel Grid.Column="1"

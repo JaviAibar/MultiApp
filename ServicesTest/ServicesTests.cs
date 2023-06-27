@@ -9,6 +9,7 @@ namespace ServicesTest
     public class ServicesTest
     {
         Mock<IMusicPlayerService> _musicService;
+        private MediaPlayer mediaPlayer = new MediaPlayer();
 
         [SetUp]
         public void Setup()
@@ -23,7 +24,6 @@ namespace ServicesTest
             player.PlayCurrentSound.Execute();
             _musicService.Verify(e => e.Play(), Times.Exactly(2));
             //Assert.Throws<NotImplementedException>(player.PlayNextSound.Execute);
-
         }
 
         public ServicesTest()
@@ -38,12 +38,5 @@ namespace ServicesTest
 
             _musicService = musicS;
         }
-
-
-            private MediaPlayer mediaPlayer = new MediaPlayer();
-
-            
-        
-
     }
 }

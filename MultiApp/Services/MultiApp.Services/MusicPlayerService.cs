@@ -8,13 +8,11 @@ namespace MultiApp.Services
 {
     public class MusicPlayerService : IMusicPlayerService
     {
-        public string? CurrentSong { get; set; }
-
-        public bool IsPlaying { get; private set; }
-
         private MediaPlayer mediaPlayer = new MediaPlayer();
 
-        
+        public string CurrentSong { get; set; }
+
+        public bool IsPlaying { get; private set; }
 
         public void Play()
         {

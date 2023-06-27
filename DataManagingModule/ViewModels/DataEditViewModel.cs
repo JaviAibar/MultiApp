@@ -13,24 +13,36 @@ namespace DataManagingModule.ViewModels
 {
     public class DataEditViewModel : BindableBase, INavigationAware
     {
-
-        private Mill _selectedMill;
+        // Services
         IRegionManager _regionManager;
+
+        // Delegate backing fields
+        private DelegateCommand _cancelCommand;
+        private DelegateCommand _saveChangesCommand;
+
+        // Delegate Commands
+        public DelegateCommand CancelCommand =>
+            _cancelCommand ??= new DelegateCommand(ExecuteCancelCommand);
+        public DelegateCommand SaveChangesCommand =>
+            _saveChangesCommand ??= new DelegateCommand(ExecuteSaveChangesCommand, CanExecuteSaveChangesCommand);
+
+
+        // Properties backing field
+        private Mill _selectedMill;
+
+        // Observable Properties
         public Mill SelectedMill
         {
             get { return _selectedMill; }
             set { SetProperty(ref _selectedMill, value); }
         }
 
-        private DelegateCommand _cancelCommand;
 
-        public DelegateCommand CancelCommand =>
-            _cancelCommand ?? (_cancelCommand = new DelegateCommand(ExecuteCancelCommand));
-
-
-        private DelegateCommand _saveChangesCommand;
-        public DelegateCommand SaveChangesCommand =>
-            _saveChangesCommand ?? (_saveChangesCommand = new DelegateCommand(ExecuteSaveChangesCommand, CanExecuteSaveChangesCommand));
+        // Constructor
+        public DataEditViewModel(IRegionManager regionManager)
+        {
+            _regionManager = regionManager;
+        }
 
 
         void ExecuteSaveChangesCommand()
@@ -71,9 +83,5 @@ namespace DataManagingModule.ViewModels
 
         }
 
-        public DataEditViewModel(IRegionManager regionManager)
-        {
-            _regionManager = regionManager;
-        }
     }
 }

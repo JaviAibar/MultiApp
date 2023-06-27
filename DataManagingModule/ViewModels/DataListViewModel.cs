@@ -22,47 +22,64 @@ namespace DataManagingModule.ViewModels
 {
     public class DataListViewModel : BindableBase, INavigationAware
     {
-        private IDialogService _dialogService;
+        // Services
         private IRegionManager _regionManager;
+        private IDialogService _dialogService;
+
+        // Delegate backing fields
+        private DelegateCommand _removeSelectedData;
+        private DelegateCommand _saveChangesCommand;
+        private DelegateCommand _editDataCommand;
+
+        // Delegate Commands
+        public DelegateCommand RemoveSelectedData =>
+            _removeSelectedData ??= new DelegateCommand(ExecuteRemoveSelectedData);
+
+
+        public DelegateCommand SaveChangesCommand =>
+            _saveChangesCommand ??= new DelegateCommand(ExecuteSaveDataCommand, SaveChangesCanExecute);
+
+
+        public DelegateCommand EditDataCommand =>
+            _editDataCommand ??= new DelegateCommand(ExecuteEditDataCommand, CanExecuteEditDataCommand);
+
+
+        // Properties backing field
         private MillDataManager _dataManager;
         private Mill _selectedData;
-        public Mill SelectedData
-        {
-            get { return _selectedData; }
-            set { SetProperty(ref _selectedData, value); }
-        }
-
-
         private int _selectedIndex;
-        public int SelectedIndex
-        {
-            get { return _selectedIndex; }
-            set { SetProperty(ref _selectedIndex, value); }
-        } 
 
-        //private ObservableCollection<Mill> _millData;
-
+        // Observable Properties
         public ObservableCollection<Mill> MillData
         {
             get { return _dataManager.Data; }
             set { ObservableCollection<Mill> tmp = _dataManager.Data; SetProperty(ref tmp, value); }
         }
 
-        private DelegateCommand _removeSelectedData;
-        public DelegateCommand RemoveSelectedData =>
-            _removeSelectedData ?? (_removeSelectedData = new DelegateCommand(ExecuteRemoveSelectedData));
+        public Mill SelectedData
+        {
+            get { return _selectedData; }
+            set { SetProperty(ref _selectedData, value); }
+        }
+
+        public int SelectedIndex
+        {
+            get { return _selectedIndex; }
+            set { SetProperty(ref _selectedIndex, value); }
+        }
 
 
-        private DelegateCommand _saveChangesCommand;
-        public DelegateCommand SaveChangesCommand =>
-            //_saveChangesCommand ?? (_saveChangesCommand = new DelegateCommand(ExecuteSaveDataCommand, SaveChangesCanExecute).ObservesProperty(() => _dataManager.UnsavedChanges));
-            _saveChangesCommand ?? (_saveChangesCommand = new DelegateCommand(ExecuteSaveDataCommand, SaveChangesCanExecute));
+        // Constructor
+        public DataListViewModel(IDialogService dialogService, IRegionManager regionManager)
+        {
+            _dialogService = dialogService;
+            _regionManager = regionManager;
+            _dataManager = new MillDataManager("./Database/mill.csv");
+            _dataManager.unsavedChanged += SaveChangesCommand.RaiseCanExecuteChanged;
+            DeselectIndex();
+        }
 
-
-        private DelegateCommand _editDataCommand;
-
-        public DelegateCommand EditDataCommand =>
-            _editDataCommand ?? (_editDataCommand = new DelegateCommand(ExecuteEditDataCommand, CanExecuteEditDataCommand));
+        private void DeselectIndex() => SelectedIndex = -1;
 
         void ExecuteEditDataCommand()
         {
@@ -76,8 +93,8 @@ namespace DataManagingModule.ViewModels
             {
                 { "selectedMill", SelectedData }
             };
-            //nameof(DataEditView)
-            _regionManager.RequestNavigate(RegionNames.DataManagingRegion, "DataEditView", navigationParams);
+
+            _regionManager.RequestNavigate(RegionNames.DataManagingRegion, nameof(DataEditView), navigationParams);
         }
 
         bool CanExecuteEditDataCommand()
@@ -130,20 +147,7 @@ namespace DataManagingModule.ViewModels
 
         }
 
-        public DataListViewModel(IDialogService dialogService, IRegionManager regionManager)
-        {
-            //Uri uriData = new Uri(@"pack://application:,,,/DataManagingModule;component/Database/mill.csv");
-            //Directory.GetFiles("./Database");
-            //Uri uriData = new Uri(@"pack://application:,,,/Database/mill.csv");
-            // Se usa el reader que corresponda al tipo de archivo que deseemos cargar
-            _dialogService = dialogService;
-            _regionManager = regionManager;
-            _dataManager = new MillDataManager("./Database/mill.csv");
-            _dataManager.unsavedChanged += SaveChangesCommand.RaiseCanExecuteChanged;
-            SelectedIndex = -1;
-            // _dataManager.PropertyChanged += 
-            //MillData = new ObservableCollection<Mill>(ReadCSV(""));
-        }
+        
 
     }
 }

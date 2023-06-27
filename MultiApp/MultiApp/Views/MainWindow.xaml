@@ -14,9 +14,3 @@
         </TabControl>
     </Grid>
 </Window>
-
-<!--<TabControl prism:RegionManager.RegionName="MusicRegion"  Margin="10" />-->
-
-<!--<ContentControl prism:RegionManager.RegionName="MusicRegion" />-->
-
-<!--<ContentControl prism:RegionManager.RegionName="{x:Static core:RegionNames.ContentRegion}" />-->

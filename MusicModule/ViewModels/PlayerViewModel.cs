@@ -17,6 +17,10 @@ namespace MusicModule.ViewModels
 {
     public class PlayerViewModel : BindableBase
     {
+        // Fields
+        private readonly Uri PlayIconUri = new("pack://application:,,,/MusicModule;component/Icons/IconPlay.png");
+        private readonly Uri PauseIconUri = new("pack://application:,,,/MusicModule;component/Icons/IconPause.png");
+
         // Services
         private IMusicPlayerService _musicService;
 
@@ -34,8 +38,6 @@ namespace MusicModule.ViewModels
             _playPreviousSound ?? (_playPreviousSound = new DelegateCommand(ExecuteNotImplemented));
 
 
-        private readonly Uri PlayIconUri = new("pack://application:,,,/MusicModule;component/Icons/IconPlay.png");
-        private readonly Uri PauseIconUri = new("pack://application:,,,/MusicModule;component/Icons/IconPause.png");
 
         private Uri _playPauseIcon;
         public Uri PlayPauseIcon
@@ -65,11 +67,11 @@ namespace MusicModule.ViewModels
             if (_musicService.IsPlaying)
             {
                 _musicService.Pause();
-                if (!_musicService.IsPlaying) PlayPauseIcon = PlayIconUri; // If it effectively changed
+                PlayPauseIcon = PlayIconUri;
                 return;
             }
             _musicService.Play();
-            if (_musicService.IsPlaying)  PlayPauseIcon = PauseIconUri;// If it effectively changed
+            if (_musicService.IsPlaying)  PlayPauseIcon = PauseIconUri;// If it indeed changed
         }
 
 

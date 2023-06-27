@@ -2,6 +2,7 @@
 using DataManagingModule.Model;
 using MultiApp.Core;
 using MultiApp.Core.Extensions;
+using Prism.Commands;
 using Prism.Mvvm;
 using System;
 using System.Collections.Generic;
@@ -12,13 +13,18 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Navigation;
+using System.Windows.Shapes;
 
 namespace DataManagingModule.Services
 {
     internal class MillDataManager : BindableBase, IDataManager<Mill>
     {
-        private string _path;
+        // Fields
         public Action unsavedChanged;
+
+        // Services
+
+        // Properties
         private string Header { set; get; }
         public ObservableCollection<Mill> Data { get; private set; }
         public string Path
@@ -29,13 +35,14 @@ namespace DataManagingModule.Services
                 LoadData();
             }
         }
+        
 
+        // Properties backing field
+        private string _path;
         private bool _unsavedChanges;
-        /* public bool UnsavedChanges
-         {
-             get { return _unsavedChanges; }
-             set { SetProperty(ref _unsavedChanges, value); }
-         }*/
+
+        // Observable Properties
+
         public bool UnsavedChanges
         {
             get => _unsavedChanges; private set
@@ -45,11 +52,14 @@ namespace DataManagingModule.Services
             }
         }
 
+        // Constructors
         public MillDataManager() { }
         public MillDataManager(string path)
         {
             Path = path;
         }
+
+        // Methods
         public void AddRow(Mill row)
         {
             Data.Add(row);
@@ -76,60 +86,21 @@ namespace DataManagingModule.Services
         }
         private void SaveCSV()
         {
-            System.Diagnostics.Debug.WriteLine(string.Join(Constants.CsvDelimiter, Data.AsEnumerable()));
             File.WriteAllText(Path, Header);
             File.AppendAllText(Path, string.Join("\n", Data.AsEnumerable()));
         }
 
         private IEnumerable<Mill> ReadCSV()
         {
-            /* METHOD WITH URI
-            StreamResourceInfo info = Application.GetResourceStream(uri);
-            // We change file extension here to make sure it's a .csv file.
-            // TODO: Error checking.
-            StreamReader sr = new StreamReader(info.Stream);
-            if (sr.EndOfStream)
-            {
-                MessageBox.Show($"File {uri.AbsolutePath} it's empty", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-                return null;
-            }
-            List<Mill> values = null;
-            do
-            {
-                string[] data = sr.ReadLine().Split(';');
-                // We return a person with the data in order.
-                values.Add(
-                    new Mill(data[0], double.Parse(data[1]), double.Parse(data[2]), double.Parse(data[3]), double.Parse(data[4]),
-                    double.Parse(data[5]), double.Parse(data[6]), double.Parse(data[7]), double.Parse(data[8]), double.Parse(data[9]),
-                    double.Parse(data[10]), double.Parse(data[11]), double.Parse(data[12]))
-                );
-            } while (!sr.EndOfStream);
-            return values;*/
-
             string[] lines = File.ReadAllLines(System.IO.Path.ChangeExtension(Path, ".csv"));
-            Header = lines[0] + "\n";
-            string[] subarray = new string[lines.Length - 1];
-            Array.Copy(lines, 1, subarray, 0, lines.Length - 1);
-            // lines.Select allows me to project each line as a Person. 
-            // This will give me an IEnumerable<Person> back.
-            return subarray.Select(line =>
+            string[] dataArray = TakeHeaderFromData(lines);
+
+            return dataArray.Select(line =>
             {
                 string[] data = line.Split(Constants.CsvDelimiter);
-                // We return a person with the data in order.
-                //return new Mill(data[0],
-                //    double.Parse(string.IsNullOrEmpty(data[1]) ? "0" : data[1]),
-                //    double.Parse(string.IsNullOrEmpty(data[2]) ? "0" : data[2]),
-                //    double.Parse(string.IsNullOrEmpty(data[3]) ? "0" : data[3]),
-                //    double.Parse(string.IsNullOrEmpty(data[4]) ? "0" : data[4]),
-                //    double.Parse(string.IsNullOrEmpty(data[5]) ? "0" : data[5]),
-                //    double.Parse(string.IsNullOrEmpty(data[6]) ? "0" : data[6]),
-                //    double.Parse(string.IsNullOrEmpty(data[7]) ? "0" : data[7]),
-                //    double.Parse(string.IsNullOrEmpty(data[8]) ? "0" : data[8]),
-                //    double.Parse(string.IsNullOrEmpty(data[9]) ? "0" : data[9]),
-                //    double.Parse(string.IsNullOrEmpty(data[10]) ? "0" : data[10]),
-                //    double.Parse(string.IsNullOrEmpty(data[11]) ? "0" : data[11]),
-                //    double.Parse(string.IsNullOrEmpty(data[12]) ? "0" : data[12]));
-                return new Mill(data[0],
+
+                return new Mill(
+                    data[0],
                     data[1].ParseOr0(),
                     data[2].ParseOr0(),
                     data[3].ParseOr0(),
@@ -143,6 +114,14 @@ namespace DataManagingModule.Services
                     data[11].ParseOr0(),
                     data[12].ParseOr0());
             });
+        }
+
+        private string[] TakeHeaderFromData(string[] originalArray)
+        {
+            Header = originalArray[0] + "\n";
+            string[] subarray = new string[originalArray.Length - 1];
+            Array.Copy(originalArray, 1, subarray, 0, originalArray.Length - 1);
+            return subarray;
         }
 
         public int UpdateRow(Mill oldRow, Mill newRow)
