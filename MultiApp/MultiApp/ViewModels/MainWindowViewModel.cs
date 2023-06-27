@@ -10,7 +10,7 @@ namespace MultiApp.ViewModels
     public class MainWindowViewModel : BindableBase
     {
         private IRegionManager _regionManager;
-        private string _title = "Prism Application";
+        private string _title = "MultiApp";
         public string Title
         {
             get { return _title; }
@@ -20,8 +20,6 @@ namespace MultiApp.ViewModels
         public MainWindowViewModel(IRegionManager regionManager)
         {
             _regionManager = regionManager;
-            SelectedTab = 2;
-            //regionManager.RequestNavigate("Visualizer3DRegion", "Visualizer3DViewModel");
         }
 
 

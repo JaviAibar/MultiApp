@@ -11,7 +11,7 @@
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition />
-            <ColumnDefinition />
+            <ColumnDefinition Width="Auto"/>
         </Grid.ColumnDefinitions>
         <!-- <ListView ItemsSource="{Binding MillData}">
             <ListView.ItemTemplate>
@@ -34,7 +34,8 @@
                     VerticalAlignment="Center">
             <StackPanel.Resources>
                 <Style TargetType="Button">
-                    <Setter Property="Margin" Value="0 10" />
+                    <Setter Property="Margin" Value="10 10 10 0" />
+                    <Setter Property="Padding" Value="7" />
                 </Style>
             </StackPanel.Resources>
             <Button 

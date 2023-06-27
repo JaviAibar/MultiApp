@@ -34,16 +34,42 @@ namespace MusicModule.ViewModels
             _playPreviousSound ?? (_playPreviousSound = new DelegateCommand(ExecuteNotImplemented));
 
 
+        private readonly Uri PlayIconUri = new("pack://application:,,,/MusicModule;component/Icons/IconPlay.png");
+        private readonly Uri PauseIconUri = new("pack://application:,,,/MusicModule;component/Icons/IconPause.png");
+
+        private Uri _playPauseIcon;
+        public Uri PlayPauseIcon
+        {
+            get { return _playPauseIcon; }
+            set { SetProperty(ref _playPauseIcon, value); }
+        }
+
+
 
         public PlayerViewModel(IMusicPlayerService musicService)
         {
             _musicService = musicService;
+            PlayPauseIcon = PlayIconUri;
+            _musicService.AddMediaEndedListener(OnMediaEnded);
         }
 
 
+
+        private void OnMediaEnded(object sender, EventArgs e)
+        {
+            PlayPauseIcon = PauseIconUri;
+        }
+
         void ExecutePlayCurrentSound()
         {
+            if (_musicService.IsPlaying)
+            {
+                _musicService.Pause();
+                if (!_musicService.IsPlaying) PlayPauseIcon = PlayIconUri; // If it effectively changed
+                return;
+            }
             _musicService.Play();
+            if (_musicService.IsPlaying)  PlayPauseIcon = PauseIconUri;// If it effectively changed
         }
 
 

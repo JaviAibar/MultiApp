@@ -38,7 +38,7 @@ namespace DataManagingModule.ViewModels
         {
             get { return _selectedIndex; }
             set { SetProperty(ref _selectedIndex, value); }
-        }
+        } 
 
         //private ObservableCollection<Mill> _millData;
 
@@ -140,6 +140,7 @@ namespace DataManagingModule.ViewModels
             _regionManager = regionManager;
             _dataManager = new MillDataManager("./Database/mill.csv");
             _dataManager.unsavedChanged += SaveChangesCommand.RaiseCanExecuteChanged;
+            SelectedIndex = -1;
             // _dataManager.PropertyChanged += 
             //MillData = new ObservableCollection<Mill>(ReadCSV(""));
         }

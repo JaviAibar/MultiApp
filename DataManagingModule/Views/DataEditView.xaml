@@ -29,13 +29,16 @@
             <Style TargetType="TextBlock">
                 <Setter Property="HorizontalAlignment" Value="Right" />
                 <Setter Property="Width" Value="Auto" />
+                <Setter Property="Margin" Value="10" />
             </Style>
             <Style TargetType="TextBox">
                 <Setter Property="HorizontalAlignment" Value="Left"/>
                 <Setter Property="Grid.Column" Value="1"/>
                 <Setter Property="MinWidth" Value="100" />
+                <Setter Property="Margin" Value="10" />
             </Style>
             <Style TargetType="Button">
+                <Setter Property="Padding" Value="7" />
                 <Setter Property="Margin" Value="10 0 0 0" />
             </Style>
             <Style TargetType="RowDefinition">

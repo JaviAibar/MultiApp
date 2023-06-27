@@ -34,8 +34,6 @@ namespace MultiApp
             moduleCatalog.AddModule<Visualizer3D.Visualizer3DModule>();
             moduleCatalog.AddModule<MusicModule.MusicModuleModule>();
             moduleCatalog.AddModule<DataManagingModule.DataManagingModuleModule>();
-            // For internationalization reasons
-            Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("en-US");
         }
     }
 }

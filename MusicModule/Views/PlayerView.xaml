@@ -36,10 +36,9 @@
                 BorderBrush="Transparent"
                 Background="Transparent"
                 Command="{Binding PlayCurrentSound}">
-            <Image>
-                <Image.Source>
-                    <BitmapImage UriSource="pack://application:,,,/MusicModule;component/Icons/IconPlay.png" />
-                </Image.Source>
+            
+            <Image  Source="{Binding PlayPauseIcon}">
+                
             </Image>
         </Button>
         <Button Grid.Column="2"

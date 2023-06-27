@@ -13,6 +13,7 @@
         <Grid.RowDefinitions>
             <RowDefinition />
             <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
         <Grid.Resources>
             <Style TargetType="Button">
@@ -263,7 +264,11 @@
             </HelixToolkit:HelixViewport3D>
         </Grid>
         <!-- AQUÍ TERMINA -->
-        <StackPanel Grid.Row="1"
+        <TextBlock Grid.Row="1"
+                   Text="{Binding LastActionPerformed}"
+                   Foreground="Gray"
+                   FontStyle="Italic"/>
+        <StackPanel Grid.Row="2"
                     Orientation="Horizontal"
                     HorizontalAlignment="Right">
 
