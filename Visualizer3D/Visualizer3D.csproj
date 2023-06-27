@@ -1,0 +1,19 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Remove="Models3D\montserra.obj" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="HelixToolkit.Wpf" Version="2.24.0" />
+    <PackageReference Include="Prism.Wpf" Version="8.1.97" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MultiApp\MultiApp.Core\MultiApp.Core.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Models3D\montserra.obj" />
+  </ItemGroup>
+</Project>

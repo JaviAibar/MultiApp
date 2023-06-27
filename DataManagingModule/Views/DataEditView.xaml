@@ -1,0 +1,97 @@
+﻿<UserControl x:Class="DataManagingModule.Views.DataEditView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:prism="http://prismlibrary.com/"             
+             prism:ViewModelLocator.AutoWireViewModel="True">
+    <Grid HorizontalAlignment="Center">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition Height="*" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Grid.Resources>
+            <Style TargetType="TextBlock">
+                <Setter Property="HorizontalAlignment" Value="Right" />
+                <Setter Property="Width" Value="Auto" />
+            </Style>
+            <Style TargetType="TextBox">
+                <Setter Property="HorizontalAlignment" Value="Left"/>
+                <Setter Property="Grid.Column" Value="1"/>
+                <Setter Property="MinWidth" Value="100" />
+            </Style>
+            <Style TargetType="Button">
+                <Setter Property="Margin" Value="10 0 0 0" />
+            </Style>
+            <Style TargetType="RowDefinition">
+                <Setter Property="Height" Value="Auto" />
+            </Style>
+        </Grid.Resources>
+        <TextBlock Text="Case name"/>
+        <TextBlock Text="Run" Grid.Row="1"/>
+        <TextBlock Text="VB1" Grid.Row="2"/>
+        <TextBlock Text="Time" Grid.Row="3"/>
+        <TextBlock Text="DOC1" Grid.Row="4"/>
+        <TextBlock Text="Feed" Grid.Row="5"/>
+        <TextBlock Text="Material" Grid.Row="6"/>
+        <TextBlock Text="SmcAC" Grid.Row="7"/>
+        <TextBlock Text="SmcDC" Grid.Row="8"/>
+        <TextBlock Text="Vib_table" Grid.Row="9"/>
+        <TextBlock Text="Vib_spindle" Grid.Row="10"/>
+        <TextBlock Text="AE_table1" Grid.Row="11"/>
+        <TextBlock Text="AE_spindle1" Grid.Row="12"/>
+
+        <TextBox Text="{Binding SelectedMill.CaseName}"/>
+        <TextBox Grid.Row="1"
+                 Text="{Binding SelectedMill.Run}"/>
+        <TextBox Grid.Row="2"
+                 Text="{Binding SelectedMill.VB1}"/>
+        <TextBox Grid.Row="3"
+                 Text="{Binding SelectedMill.Time}"/>
+        <TextBox Grid.Row="4"
+                 Text="{Binding SelectedMill.DOC1}"/>
+        <TextBox Grid.Row="5"
+                 Text="{Binding SelectedMill.Feed}"/>
+        <TextBox Grid.Row="6"
+                 Text="{Binding SelectedMill.Material}"/>
+        <TextBox Grid.Row="7"
+                 Text="{Binding SelectedMill.SmcAC}"/>
+        <TextBox Grid.Row="8"
+                 Text="{Binding SelectedMill.SmcDC}"/>
+        <TextBox Grid.Row="9"
+                 Text="{Binding SelectedMill.Vib_table}"/>
+        <TextBox Grid.Row="10"
+                 Text="{Binding SelectedMill.Vib_spindle}"/>
+        <TextBox Grid.Row="11"
+                 Text="{Binding SelectedMill.AE_table1}"/>
+        <TextBox Grid.Row="12"
+                 Text="{Binding SelectedMill.AE_spindle1}"/>
+        
+        
+        
+        <StackPanel Orientation="Horizontal"
+                    HorizontalAlignment="Right"
+                    Grid.ColumnSpan="2" 
+                    Grid.Row="14">
+            <Button Command="{Binding SaveChangesCommand}"
+                    Content="Save Changes"/>
+            <Button Command="{Binding CancelCommand}"
+                    Content="Cancel"/>
+        </StackPanel>
+    </Grid>
+</UserControl>

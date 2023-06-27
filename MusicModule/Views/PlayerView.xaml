@@ -1,0 +1,57 @@
+﻿<UserControl x:Class="MusicModule.Views.PlayerView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:prism="http://prismlibrary.com/"             
+             prism:ViewModelLocator.AutoWireViewModel="True">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="25*"/>
+            <ColumnDefinition Width="50*"/>
+            <ColumnDefinition Width="25*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.Resources>
+            <Style TargetType="Button">
+                <Setter Property="Margin" Value="10" />
+            </Style>
+        </Grid.Resources>
+        
+        <Button BorderBrush="Transparent"
+                Background="Transparent"
+                Command="{Binding PlayPreviousSound}"
+                 >
+            <Image>
+                <Image.Source>
+                    <!-- To save significant application memory, set the DecodePixelWidth or  
+     DecodePixelHeight of the BitmapImage value of the image source to the desired 
+     height and width of the rendered image. If you don't do this, the application will 
+     cache the image as though it were rendered as its normal size rather than just 
+     the size that is displayed. -->
+                    <!-- Note: In order to preserve aspect ratio, only set either DecodePixelWidth
+         or DecodePixelHeight but not both. -->
+                    <BitmapImage UriSource="pack://application:,,,/MusicModule;component/Icons/IconPrevious.png" /> <!--DecodePixelHeight="200"-->
+                </Image.Source>
+            </Image>
+        </Button>
+        <Button Grid.Column="1"
+                BorderBrush="Transparent"
+                Background="Transparent"
+                Command="{Binding PlayCurrentSound}">
+            <Image>
+                <Image.Source>
+                    <BitmapImage UriSource="pack://application:,,,/MusicModule;component/Icons/IconPlay.png" />
+                </Image.Source>
+            </Image>
+        </Button>
+        <Button Grid.Column="2"
+                BorderBrush="Transparent"
+                Background="Transparent"
+                Command="{Binding PlayNextSound}"
+                 Width="Auto">
+            <Image>
+                <Image.Source>
+                    <BitmapImage UriSource="pack://application:,,,/MusicModule;component/Icons/IconNext.png" />
+                </Image.Source>
+            </Image>
+        </Button>
+    </Grid>
+</UserControl>

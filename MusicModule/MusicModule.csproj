@@ -1,0 +1,26 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+	<PropertyGroup>
+		<TargetFramework>net6.0-windows</TargetFramework>
+		<UseWPF>true</UseWPF>
+	</PropertyGroup>
+	<ItemGroup>
+		<None Remove="Icons\IconNext.png" />
+		<None Remove="Icons\IconPause.png" />
+		<None Remove="Icons\IconPlay.png" />
+		<None Remove="Icons\IconPrevious.png" />
+	</ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="Prism.Wpf" Version="8.1.97" />
+	</ItemGroup>
+	<ItemGroup>
+		<ProjectReference Include="..\MultiApp\MultiApp.Core\MultiApp.Core.csproj" />
+		<ProjectReference Include="..\MultiApp\Services\MultiApp.Services\MultiApp.Services.csproj" />
+		<ProjectReference Include="..\MultiApp\Services\MultiApp.Services.Interfaces\MultiApp.Services.Interfaces.csproj" />
+	</ItemGroup>
+	<ItemGroup>
+		<Resource Include="Icons\IconNext.png" />
+		<Resource Include="Icons\IconPause.png" />
+		<Resource Include="Icons\IconPlay.png" />
+		<Resource Include="Icons\IconPrevious.png" />
+	</ItemGroup>
+</Project>
